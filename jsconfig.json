@@ -1,0 +1,12 @@
+// File cấu hình cho VSCode
+// Ctrl + Click sẽ tới file import
+{
+    "compilerOptions": {
+        // Dự án chứa jsconfig.json
+        "baseUrl": ".",
+        // Alias thay thế cho ./src/*
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    }
+}
