@@ -29,7 +29,7 @@ export default ({ mode }) => {
     base: '/',
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
+        '~': path.resolve(__dirname, 'src'),
       },
     },
     // Cấu hình server của Vite
