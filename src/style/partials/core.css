@@ -1,0 +1,9 @@
+.centerAbsolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 32px;
+  height: 38px;
+  margin-left: -16px;
+  margin-top: -19px;
+}

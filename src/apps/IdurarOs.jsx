@@ -8,7 +8,7 @@ const DefaultApp = () => (
     <ErpApp />
 )
 
-export default function IdurarOs() {
+export const IdurarOs = () => {
     // Triển khai đăng
     return (
         <DefaultApp />

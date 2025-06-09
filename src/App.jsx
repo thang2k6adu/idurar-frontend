@@ -1,8 +1,8 @@
 import './style/app.css'
 import { BrowserRouter } from 'react-router-dom'
-import IdurarOs from './apps/IdurarOs'
+import { IdurarOs } from '@/apps/IdurarOs'
 
-export default function App() {
+export const App = () => {
   return (
     <BrowserRouter>
       <IdurarOs />

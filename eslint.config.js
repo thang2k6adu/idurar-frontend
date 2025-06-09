@@ -36,6 +36,7 @@ export default [
       ...reactHooks.configs.recommended.rules,
       // Kiểm tra biến không sử dụng
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      semi: false,
       // Kiểm tra chỉ export component, không dùng kiểu viết tắt arrow function
       'react-refresh/only-export-components': [
         'warn',
