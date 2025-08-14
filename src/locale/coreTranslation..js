@@ -1,0 +1,1 @@
+const coreTranslation = ['en_us']

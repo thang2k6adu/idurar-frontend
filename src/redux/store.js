@@ -1,9 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-
-// import lang from '~/locale/translation/en_us'
-
+import rootReducer from './rootReducer'
 import storePersist from './storePersist'
 
+// import lang from '~/locale/translation/en_us'
 const AUTH_INITIAL_STATE = {
   current: {},
   isLoggedIn: false,

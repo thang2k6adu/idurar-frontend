@@ -16,6 +16,8 @@ export const login = async ({ loginData }) => {
       notifyOnSuccess: false,
       notifyOnFailed: true,
     })
+
+    return response.data
   } catch (error) {
     return errorHandler(error)
   }
@@ -29,6 +31,7 @@ export const register = async ({ registerData }) => {
       notifyOnSuccess: true,
       notifyOnFailed: true,
     })
+    return response.data
   } catch (error) {
     return errorHandler(error)
   }

@@ -1,6 +1,6 @@
 import * as actionTypes from './types'
 import * as authService from '~/auth'
-import { request } from '~/request'
+import { request } from '~/request/request'
 
 export const login =
   ({ loginData }) =>
