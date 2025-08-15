@@ -31,7 +31,7 @@ const AuthModule = ({ authContent, AUTH_TITLE, isForRegistre = false }) => {
             }}
             height={63}
             width={220}
-          />AuthModule
+          />
           <div className="space10" />
         </Col>
         <Title level={1}>{translate(AUTH_TITLE)}</Title>
