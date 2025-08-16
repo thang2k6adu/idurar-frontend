@@ -2,6 +2,7 @@ import Localization from '~/locale/Localization'
 import { lazy, Suspense } from 'react'
 import { selectAuth } from '~/redux/auth/selectors'
 import { useSelector } from 'react-redux'
+import { AppContextProvider } from '~/context/appContext'
 
 import PageLoader from '~/components/PageLoader'
 import AuthRouter from '~/router/AuthRouter'
@@ -10,9 +11,11 @@ const ErpApp = lazy(() => import('./ErpApp'))
 
 const DefaultApp = () => (
   <Localization>
-    <Suspense fallback={<PageLoader />}>
-      <ErpApp />
-    </Suspense>
+    <AppContextProvider>
+      <Suspense fallback={<PageLoader />}>
+        <ErpApp />
+      </Suspense>
+    </AppContextProvider>
   </Localization>
 )
 

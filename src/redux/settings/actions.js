@@ -29,7 +29,7 @@ const dispatchSettingsData = (datas) => {
   })
 }
 
-export const settingAction = {
+export const settingsAction = {
   resetState: () => (dispatch) => {
     dispatch({
       type: actionTypes.RESET_STATE,
