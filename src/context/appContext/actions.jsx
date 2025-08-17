@@ -13,7 +13,7 @@ const contextActions = (dispatch) => {
         dispatch({ type: actionTypes.COLLAPSE_NAV_MENU})
       },
     },
-    navMenu: {
+    app: {
       open: (appName) => {
         dispatch({ type: actionTypes.CHANGE_APP, payload: appName})
       },
@@ -23,3 +23,5 @@ const contextActions = (dispatch) => {
     }
   }
 }
+
+export default contextActions
