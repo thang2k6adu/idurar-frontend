@@ -7,6 +7,7 @@ import { selectSetting } from '~/redux/settings/selectors'
 import useResponsive from '~/hooks/useResponsive'
 import PageLoader from '~/components/PageLoader'
 import Navigation from './Navigation/NavigationContainer'
+import HeaderContent from './Header/HeaderContainer'
 
 export default function ErpApp() {
   const { Content, Sider } = Layout
@@ -25,9 +26,15 @@ export default function ErpApp() {
       <Layout hasSider>
         <Navigation />
         {isMobile ? (
-          <Content style={{ backgroundColor: 'green' }}>Mobile</Content>
+          <Layout>
+            <HeaderContent />
+            <Content style={{ backgroundColor: 'green' }}>Mobile</Content>
+          </Layout>
         ) : (
-          <Content style={{ backgroundColor: 'green' }}>PC</Content>
+          <Layout>
+            <HeaderContent />
+            <Content style={{ backgroundColor: 'green' }}>PC</Content>
+          </Layout>
         )}
       </Layout>
     )

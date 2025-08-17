@@ -49,27 +49,27 @@ function Sidebar({ collapsible, isMobile = false }) {
     {
       key: 'customer',
       icon: <CustomerServiceOutlined />,
-      label: <Link to={'/customer'}>{translate('customer')}</Link>,
+      label: <Link to={'/customer'}>{translate('customers')}</Link>,
     },
     {
       key: 'invoice',
       icon: <ContainerOutlined />,
-      label: <Link to={'/invoice'}>{translate('invoice')}</Link>,
+      label: <Link to={'/invoice'}>{translate('invoices')}</Link>,
     },
     {
       key: 'quote',
       icon: <FileSyncOutlined />,
-      label: <Link to={'/quote'}>{translate('quote')}</Link>,
+      label: <Link to={'/quote'}>{translate('quotes')}</Link>,
     },
     {
-      key: 'payment',
+      key: 'payments',
       icon: <CreditCardOutlined />,
       label: <Link to={'/payments'}>{translate('payments')}</Link>,
     },
     {
       key: 'paymentMode',
       icon: <CreditCardOutlined />,
-      label: <Link to={'/paymentMode'}>{translate('paymentMode')}</Link>,
+      label: <Link to={'/paymentMode'}>{translate('paymentModes')}</Link>,
     },
     {
       key: 'taxes',
@@ -80,7 +80,7 @@ function Sidebar({ collapsible, isMobile = false }) {
       key: 'generalSettings',
       icon: <SettingOutlined />,
       label: (
-        <Link to={'/generalSettings'}>{translate('generalSettings')}</Link>
+        <Link to={'/generalSettings'}>{translate('Settings')}</Link>
       ),
     },
     {
