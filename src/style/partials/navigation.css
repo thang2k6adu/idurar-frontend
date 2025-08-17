@@ -1,0 +1,23 @@
+.navigation {
+  position: sticky;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border-right: 1px solid #edf0f5;
+}
+.logo {
+  height: 45px;
+  margin: 15px 15px 30px 30px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 160px;
+}
+@media screen and (max-width: 768px) {
+  .navigation {
+    height: 100%;
+  }
+}
