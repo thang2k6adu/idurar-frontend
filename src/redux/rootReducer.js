@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { reducer as authReducer } from './auth'
 import { reducer as settingsReducer } from './settings'
 import { reducer as erpReducer } from './erp'
+import { reducer as crudReducer } from './crud'
 
 // {
 //  auth:{
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   settings: settingsReducer,
   erp: erpReducer,
+  crud: crudReducer,
 })
 
 export default rootReducer

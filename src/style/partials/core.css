@@ -38,7 +38,7 @@
   width: 100%;
   display: block;
 }
-.centerAbsolute{
+.centerAbsolute {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -46,4 +46,18 @@
   height: 38px;
   margin-left: -16px;
   margin-top: -19px;
+}
+.whiteBox {
+  background-color: #fff;
+  width: 100%;
+  min-height: 100px;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
+}
+.shadow {
+  border: 1px solid #e0e0e0;
+}
+.layoutPadding {
+  position: relative;
+  padding: 50px 40px;
 }

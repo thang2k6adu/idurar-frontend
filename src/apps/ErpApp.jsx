@@ -8,9 +8,10 @@ import useResponsive from '~/hooks/useResponsive'
 import PageLoader from '~/components/PageLoader'
 import Navigation from './Navigation/NavigationContainer'
 import HeaderContent from './Header/HeaderContainer'
+import AppRouter from '~/router/AppRouter'
 
 export default function ErpApp() {
-  const { Content, Sider } = Layout
+  const { Content } = Layout
   const { isMobile } = useResponsive()
 
   const dispatch = useDispatch()
@@ -28,12 +29,16 @@ export default function ErpApp() {
         {isMobile ? (
           <Layout>
             <HeaderContent />
-            <Content style={{ backgroundColor: 'green' }}>Mobile</Content>
+            <Content style={{ backgroundColor: 'green' }}>
+              <AppRouter />
+            </Content>
           </Layout>
         ) : (
           <Layout>
             <HeaderContent />
-            <Content style={{ backgroundColor: 'green' }}>PC</Content>
+            <Content style={{ backgroundColor: 'green' }}>
+              <AppRouter />
+            </Content>
           </Layout>
         )}
       </Layout>

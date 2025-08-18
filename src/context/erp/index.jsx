@@ -5,14 +5,14 @@ import contextSelectors from './selectors'
 
 const ErpContext = createContext()
 
-function ErpContextProvider({ children }) {
+export function ErpContextProvider({ children }) {
   const [state, dispatch] = useReducer(contextReducer, initialState)
   const value = useMemo(() => [state, dispatch], [state])
 
   return <ErpContext.Provider value={value}>{children}</ErpContext.Provider>
 }
 
-function useErpContext() {
+export function useErpContext() {
   const context = useContext(ErpContext)
   if (context === undefined) {
     throw new Error('useContext must be within a ErpContextProvider')
