@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const selectErp = (state) => state.selectErp
+const selectErp = (state) => state.erp
 
 export const selectCurrentItem = createSelector([selectErp], (erp) => erp.current)
 export const selectListItems = createSelector([selectErp], (erp) => erp.list)

@@ -29,14 +29,14 @@ export default function ErpApp() {
         {isMobile ? (
           <Layout>
             <HeaderContent />
-            <Content style={{ backgroundColor: 'green' }}>
+            <Content style={{ backgroundColor: '#FFF' }}>
               <AppRouter />
             </Content>
           </Layout>
         ) : (
           <Layout>
             <HeaderContent />
-            <Content style={{ backgroundColor: 'green' }}>
+            <Content style={{ backgroundColor: '#FFF' }}>
               <AppRouter />
             </Content>
           </Layout>

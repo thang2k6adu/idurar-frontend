@@ -64,9 +64,9 @@ export default function DataTable({ config, extra = [] }) {
   function handleEdit(record) {
     dispatch(crud.currentItem({ data: record }))
     dispatch(crud.currentAction({ actionType: 'update', data: record }))
-    editBox.open()
     panel.open()
     collapsedBox.open()
+    editBox.open()
   }
   function handleDelete(record) {
     dispatch(crud.currentAction({ actionType: 'delete', data: record }))
@@ -76,9 +76,9 @@ export default function DataTable({ config, extra = [] }) {
   function handleUpdatePassword(record) {
     dispatch(crud.currentItem({ data: record }))
     dispatch(crud.currentAction({ actionType: 'update', data: record }))
-    advancedBox.open()
     panel.open()
     collapsedBox.open()
+    advancedBox.open()
   }
 
   dataTableColumns = [

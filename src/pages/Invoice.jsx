@@ -1,10 +1,13 @@
 import ErpLayout from '~/layout/ErpLayout'
-import DataTable from '~/components/DataTable/DataTable'
+import ErpPanel from '~/modules/ErpPanelModule'
 import useLanguage from '~/locale/useLanguage'
 import { useDate, useMoney } from '~/settings'
 import dayjs from 'dayjs'
 import { CreditCardOutlined } from '@ant-design/icons'
 import { CrudContextProvider } from '~/context/crud'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { ErpContextProvider } from '~/context/erp'
 
 export default function Invoice() {
   const translate = useLanguage()
@@ -92,9 +95,9 @@ export default function Invoice() {
   }
 
   return (
-    <CrudContextProvider>
+    <ErpContextProvider>
       <ErpLayout>
-        <DataTable
+        <ErpPanel
           config={config}
           extra={[
             {
@@ -105,6 +108,6 @@ export default function Invoice() {
           ]}
         />
       </ErpLayout>
-    </CrudContextProvider>
+    </ErpContextProvider>
   )
 }
