@@ -89,7 +89,7 @@ const erpReducer = (state = INITIAL_STATE, action) => {
         [keyState]: {
           result: payload,
           isLoading: false,
-          isSuccess: false,
+          isSuccess: true,
         },
       }
 
