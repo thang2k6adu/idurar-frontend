@@ -26,7 +26,7 @@ export default function ErpPanel({ config, extra }) {
   }, [])
 
   return <>
-    <DataTable config={config} extra={extra}></DataTable>
     <Delete config={config} isOpen={deleteModal.isOpen} />
+    <DataTable config={config} extra={extra}></DataTable>
   </>
 }

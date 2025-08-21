@@ -9,3 +9,9 @@ export function valueByString(obj, string, devider) {
     })
     .join(' ');
 }
+
+export function get(obj, key) {
+  return key.split('.').reduce(function (o, x) {
+    return o === undefined || o === null ? o : o[x];
+  }, obj);
+}

@@ -6,6 +6,7 @@ import {
   DeleteOutlined,
   ArrowLeftOutlined,
   RedoOutlined,
+  PlusOutlined,
 } from '@ant-design/icons'
 import { PageHeader } from '@ant-design/pro-layout'
 import { Button, Dropdown, Table } from 'antd'
@@ -18,14 +19,21 @@ import { erp } from '~/redux/erp/actions'
 import { selectListItems } from '~/redux/erp/selector'
 import { generate as uniqueId } from 'shortid'
 import { useErpContext } from '~/context/erp'
+import { selectDeletedItem } from '~/redux/erp/selector'
 
-function AddNewItem( {config}){
+function AddNewItem({ config }) {
   const navigate = useNavigate()
-  const { ADD_NEW_ENITY, entity} = config
+  const { ADD_NEW_ENTITY, entity } = config
 
   const handleClick = () => {
     navigate(`/${entity.toLowerCase()}/create`)
   }
+
+  return (
+    <Button onClick={handleClick} type="primary" icon={<PlusOutlined />}>
+      {ADD_NEW_ENTITY}
+    </Button>
+  )
 }
 
 export default function DataTable({ config, extra = [] }) {
@@ -36,7 +44,6 @@ export default function DataTable({ config, extra = [] }) {
   const { result: listResult, isLoading: listIsLoading } =
     useSelector(selectListItems)
   const { pagination, items: dataSource } = listResult
-  console.log('listResult', listResult)
   const { erpContextActions } = useErpContext()
   const { modal } = erpContextActions
   const items = [
@@ -84,6 +91,7 @@ export default function DataTable({ config, extra = [] }) {
       '_blank'
     )
   }
+
   const handleDelete = (record) => {
     dispatch(erp.currentAction({ actionType: 'delete', data: record }))
     modal.open()
@@ -184,10 +192,10 @@ export default function DataTable({ config, extra = [] }) {
             {translate('refresh')}
           </Button>,
           // disableAdd có thể được dùng trong (payment - ko được tạo vớ vẩn)
-          !disableAdd && <AddNewItem config={config} key={uniqueId()}/>
+          !disableAdd && <AddNewItem config={config} key={uniqueId()} />,
         ]}
       ></PageHeader>
-      <Table 
+      <Table
         columns={dataTableColumns}
         rowKey={(item) => item._id}
         dataSource={dataSource}

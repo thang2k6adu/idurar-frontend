@@ -23,10 +23,11 @@ export const erp = {
       })
     },
   currentAction:
-    ({ data }) =>
+    ({ actionType, data }) =>
     (dispatch) => {
       dispatch({
         type: actionTypes.CURRENT_ACTION,
+        keyState: actionType,
         payload: { ...data },
       })
     },

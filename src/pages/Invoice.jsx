@@ -74,7 +74,7 @@ export default function Invoice() {
     },
   ]
 
-  const Labels = {
+  const labels = {
     PANEL_TITLE: translate('invoice'),
     DATATABLE_TITLE: translate('invoice_list'),
     ADD_NEW_ENTITY: translate('add_new_invoice'),
@@ -84,7 +84,7 @@ export default function Invoice() {
 
   const configPage = {
     entity,
-    ...Labels,
+    ...labels,
   }
 
   const config = {
