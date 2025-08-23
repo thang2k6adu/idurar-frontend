@@ -155,6 +155,8 @@ export const request = {
         notifyOnSuccess: false,
         notifyOnFailed: false,
       })
+    
+      return respose.data
     } catch (error) {
       return errorHandler(error)
     }
