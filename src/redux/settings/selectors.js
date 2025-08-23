@@ -19,7 +19,7 @@ export const selectAppSettings = createSelector(
 
 export const selectFinanceSettings = createSelector(
   [selectCurrentSettings],
-  (settings) => settings.finance_setting
+  (settings) => settings.finance_settings
 )
 
 export const selectCrmSettings = createSelector(

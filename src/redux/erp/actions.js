@@ -80,6 +80,17 @@ export const erp = {
           type: actionTypes.CURRENT_ITEM,
           payload: data.result,
         })
+        dispatch({
+          type: actionTypes.REQUEST_SUCCESS,
+          keyState: 'create',
+          payload: data.result,
+        })
+      } else {
+        dispatch({
+          type: actionTypes.REQUEST_FAILED,
+          payload: null,
+          keyState: 'create',
+        })
       }
     },
   recordPayment:
@@ -117,7 +128,7 @@ export const erp = {
       dispatch({
         type: actionTypes.REQUEST_LOADING,
         keyState: 'read',
-        payload: nul,
+        payload: null,
       })
 
       let data = await request.read({ entity, id })
@@ -131,6 +142,7 @@ export const erp = {
         dispatch({
           type: actionTypes.REQUEST_SUCCESS,
           keyState: 'read',
+          payload: data.result
         })
       } else {
         dispatch({
@@ -160,6 +172,11 @@ export const erp = {
         dispatch({
           type: actionTypes.CURRENT_ITEM,
           payload: data.result,
+        })
+      } else {
+        dispatch({
+          type: actionTypes.REQUEST_FAILED,
+          keyState: 'update',
           payload: null,
         })
       }
