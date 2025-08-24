@@ -51,6 +51,18 @@ const INITIAL_STATE = {
     isLoading: false,
     isSuccess: false,
   },
+  read: {
+    result: null,
+    current: null,
+    isLoading: false,
+    isSuccess: false,
+  },
+  update: {
+    result: null,
+    current: null,
+    isLoading: false,
+    isSuccess: false,
+  },
 }
 
 const erpReducer = (state = INITIAL_STATE, action) => {
