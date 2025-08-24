@@ -94,7 +94,7 @@ export default function DataTable({ config, extra = [] }) {
 
   const handleDelete = (record) => {
     dispatch(erp.currentAction({ actionType: 'delete', data: record }))
-    modal.open()
+    modal.close()
   }
   const handleRecordPayment = (record) => {
     dispatch(erp.currentItem({ data: record }))

@@ -65,7 +65,7 @@ export const request = {
       includeToken()
       const response = await axios.get(entity + '/read/' + id)
       successHandler(response, {
-        notifyOnSuccess: true,
+        notifyOnSuccess: false,
         notifyOnFailed: true,
       })
 
@@ -83,6 +83,7 @@ export const request = {
         notifyOnSuccess: true,
         notifyOnFailed: true,
       })
+    return response.data
     } catch (error) {
       return errorHandler(error)
     }
