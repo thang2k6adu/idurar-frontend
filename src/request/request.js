@@ -280,7 +280,7 @@ export const request = {
   mail: async ({ entity, jsonData }) => {
     try {
       includeToken()
-      const response = await axios.post(entity + '/mail', jsonData)
+      const response = await axios.post(entity + '/sendMail', jsonData)
 
       successHandler(response, {
         notifyOnSuccess: true,
@@ -293,7 +293,8 @@ export const request = {
   convert: async ({ entity, id }) => {
     try {
       includeToken()
-      const response = await axios.get(entity + '/convert/' + id)
+      console.log(entity + '/convert/' + id)
+      const response = await axios.post(entity + '/convert/' + id)
 
       successHandler(response, {
         notifyOnSuccess: true,
