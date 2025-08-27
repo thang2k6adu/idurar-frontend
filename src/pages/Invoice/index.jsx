@@ -1,13 +1,7 @@
-import ErpLayout from '~/layout/ErpLayout'
-import ErpPanel from '~/modules/ErpPanelModule'
 import useLanguage from '~/locale/useLanguage'
+import InvoiceDataTableModule from '~/modules/InvoiceModule/InvoiceDataTableModule'
 import { useDate, useMoney } from '~/settings'
 import dayjs from 'dayjs'
-import { CreditCardOutlined } from '@ant-design/icons'
-import { CrudContextProvider } from '~/context/crud'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { ErpContextProvider } from '~/context/erp'
 
 export default function Invoice() {
   const translate = useLanguage()
@@ -17,59 +11,75 @@ export default function Invoice() {
 
   const searchConfig = {
     entity: 'client',
-    dispayLabels: ['name'],
+    displayLabel: ['name'],
     searchFields: 'name',
   }
 
   const deleteModalLabels = ['number', 'client.name']
-
   const dataTableColumns = [
     {
       title: translate('Number'),
       dataIndex: 'number',
     },
     {
-      title: translate('client'),
-      // access thuoc tinh long nhau record.client.name
+      title: translate('Client'),
       dataIndex: ['client', 'name'],
     },
     {
-      title: translate('date'),
+      title: translate('Date'),
       dataIndex: 'date',
       render: (date) => {
         return dayjs(date).format(dateFormat)
       },
     },
     {
-      title: translate('expired date'),
+      title: translate('expired Date'),
       dataIndex: 'expiredDate',
       render: (date) => {
         return dayjs(date).format(dateFormat)
       },
     },
     {
-      title: translate('Total'),
+      title: translate('total'),
       dataIndex: 'total',
-      // Modify html attribute of a cell (of row)
       onCell: () => {
         return {
-          textAlign: 'right',
-          // Gộp nhiều khoảng trắng thành 1 và ko cho xuống dòng
-          whiteSpace: 'nowrap',
-          direction: 'ltr',
+          style: {
+            textAlign: 'right',
+            whiteSpace: 'nowrap',
+            direction: 'ltr',
+          },
         }
       },
       render: (total, record) => {
-        // Currency_code is chữ cái tiền tệ
         return moneyFormatter({ amount: total, currency_code: record.currency })
       },
     },
     {
-      title: translate('Status'),
+      title: translate('paid'),
+      dataIndex: 'credit',
+      onCell: () => {
+        return {
+          style: {
+            textAlign: 'right',
+            whiteSpace: 'nowrap',
+            direction: 'ltr',
+          },
+        }
+      },
+      render: (credit, record) => {
+        return moneyFormatter({
+          amount: credit,
+          currency_code: record.currency,
+        })
+      },
+    },
+    {
+      title: translate('status'),
       dataIndex: 'status',
     },
     {
-      title: translate('Payment'),
+      title: translate('payment'),
       dataIndex: 'paymentStatus',
     },
   ]
@@ -79,6 +89,7 @@ export default function Invoice() {
     DATATABLE_TITLE: translate('invoice_list'),
     ADD_NEW_ENTITY: translate('add_new_invoice'),
     ENTITY_NAME: translate('invoice'),
+
     RECORD_ENTITY: translate('record_payment'),
   }
 
@@ -94,20 +105,5 @@ export default function Invoice() {
     deleteModalLabels,
   }
 
-  return (
-    <ErpContextProvider>
-      <ErpLayout>
-        <ErpPanel
-          config={config}
-          extra={[
-            {
-              label: translate('Record Payment'),
-              key: 'recordPayment',
-              icon: <CreditCardOutlined />,
-            },
-          ]}
-        />
-      </ErpLayout>
-    </ErpContextProvider>
-  )
+  return <InvoiceDataTableModule config={config}/>
 }

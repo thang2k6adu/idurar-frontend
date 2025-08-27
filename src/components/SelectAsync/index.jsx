@@ -32,7 +32,6 @@ export default function SelectAsync({
       const val = value?.[outputValue] ?? value
       setCurrentValue(val)
       onChange(val)
-      console.log('oke')
     }
   }, [value])
 

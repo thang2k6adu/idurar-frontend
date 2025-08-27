@@ -5,7 +5,7 @@ const selectErp = (state) => state.erp
 export const selectCurrentItem = createSelector([selectErp], (erp) => erp.current)
 export const selectListItems = createSelector([selectErp], (erp) => erp.list)
 
-export const selectITemById = (itemId) => createSelector([selectListItems], (list) => list.result.items.find((item) => item._id === itemId))
+export const selectItemById = (itemId) => createSelector([selectListItems], (list) => list.result.items.find((item) => item._id === itemId))
 
 export const selectCreatedItem = createSelector([selectErp], (erp) => erp.create)
 export const selectUpdatedItem = createSelector([selectErp], (erp) => erp.update)

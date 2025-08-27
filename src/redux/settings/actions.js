@@ -50,7 +50,7 @@ export const settingsAction = {
       dispatch({ type: actionTypes.REQUEST_LOADING })
 
       let data = await request.patch({
-        entity: entity + '/updateBySettingKey' + settingKey,
+        entity: entity + '/updateBySettingKey/' + settingKey,
         jsonData,
       })
 
