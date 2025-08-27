@@ -134,7 +134,7 @@ export default function UpdateItem({ config, UpdateForm }) {
       title={translate('update')}
       ghost={false}
       tags={[
-        <span key="status">
+        <span key="status" style={{marginRight: '12px'}}>
           {currentErp.status && translate(currentErp.status)}
         </span>,
         currentErp.paymentStatus && (

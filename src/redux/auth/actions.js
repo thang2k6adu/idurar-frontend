@@ -155,7 +155,7 @@ export const updateProfile =
     })
     let data = await request.updateAndUpload({ entity, id: '', jsonData })
 
-    if (data.success = true) {
+    if (data.success === true) {
       dispatch({
         type: actionTypes.REQUEST_SUCCESS,
         payload: data.result,

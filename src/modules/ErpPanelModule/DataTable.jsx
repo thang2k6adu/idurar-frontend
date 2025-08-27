@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom'
 import { DOWNLOAD_BASE_URL } from '~/config/serverApiConfig'
 import useLanguage from '~/locale/useLanguage'
 import { erp } from '~/redux/erp/actions'
-import { selectListItems } from '~/redux/erp/selector'
+import { selectCurrentItem, selectListItems } from '~/redux/erp/selector'
 import { generate as uniqueId } from 'shortid'
 import { useErpContext } from '~/context/erp'
 import { selectDeletedItem } from '~/redux/erp/selector'
@@ -98,6 +98,7 @@ export default function DataTable({ config, extra = [] }) {
   }
   const handleRecordPayment = (record) => {
     dispatch(erp.currentItem({ data: record }))
+    dispatch(erp.currentAction({ actionType: 'recordPayment', data: record }))
     navigate(`/invoice/pay/${record._id}`)
   }
 
