@@ -1,7 +1,14 @@
-import { ArrowLeftOutlined, EyeOutlined, RedoOutlined, EllipsisOutlined } from '@ant-design/icons'
+import {
+  ArrowLeftOutlined,
+  EyeOutlined,
+  RedoOutlined,
+  EllipsisOutlined,
+  EditOutlined,
+  DeleteOutlined,
+} from '@ant-design/icons'
 import { PageHeader } from '@ant-design/pro-layout'
 import { Input, Table, Dropdown } from 'antd'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { crud } from '~/redux/crud/actions'
 import { Button } from 'antd'
@@ -11,6 +18,7 @@ import useLanguage from '~/locale/useLanguage'
 import { useCrudContext } from '~/context/crud'
 import { dataForTable } from '~/utils/dataStructure'
 import { selectListItems } from '~/redux/crud/selectors'
+import { useDate, useMoney } from '~/settings'
 
 function AddNewItem({ config }) {
   const { crudContextAction } = useCrudContext()
@@ -32,18 +40,24 @@ function AddNewItem({ config }) {
 export default function DataTable({ config, extra = [] }) {
   const dispatch = useDispatch()
   const translate = useLanguage()
+  const { crudContextAction } = useCrudContext()
+  console.log(useCrudContext())
+  const { panel, collapsedBox, modal, readBox, editBox, advancedBox } =
+    crudContextAction
+  const { moneyFormatter } = useMoney()
+  const { dateFormat } = useDate()
 
   let { entity, dataTableColumns, DATATABLE_TITLE, fields, searchConfig } =
     config
 
   const items = [
     { label: translate('Show'), key: 'read', icon: <EyeOutlined /> },
-    { label: translate('Edit'), key: 'edit', icon: <EyeOutlined /> },
+    { label: translate('Edit'), key: 'edit', icon: <EditOutlined /> },
     ...extra,
     {
       type: 'divider',
     },
-    { label: translate('Delete'), key: 'delete', icon: <EyeOutlined /> },
+    { label: translate('Delete'), key: 'delete', icon: <DeleteOutlined /> },
   ]
 
   let dispatchColumns = []
@@ -130,7 +144,7 @@ export default function DataTable({ config, extra = [] }) {
   const { pagination, items: dataSource } = listResult
 
   const filterTable = (e) => {
-    const value = e.taget.value
+    const value = e.target.value
     const options = { q: value, fields: searchConfig?.searchFields || '' }
     dispatch(crud.list({ entity, options }))
   }
@@ -141,6 +155,18 @@ export default function DataTable({ config, extra = [] }) {
       items: pagination.pageSize || 10,
     }
     dispatch(crud.list({ entity, options }))
+  }, [])
+
+  const dispatcher = () => {
+    dispatch(crud.list({ entity }))
+  }
+
+  useEffect(() => {
+    const controller = new AbortController()
+    dispatcher()
+    return () => {
+      controller.abort()
+    }
   }, [])
 
   return (
