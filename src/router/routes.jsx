@@ -13,6 +13,7 @@ const QuoteRead = lazy(() => import('~/pages/Quote/QuoteRead'))
 const Payment = lazy(() => import('~/pages/Payment'))
 const PaymentRead = lazy(() => import('~/pages/Payment/PaymentRead'))
 const PaymentUpdate = lazy(() => import('~/pages/Payment/PaymentUpdate'))
+const Customer = lazy(() => import('~/pages/Customer'))
 
 let routes = {
   expense: [],
@@ -68,6 +69,10 @@ let routes = {
     {
       path: '/payment/update/:id',
       element: <PaymentUpdate />,
+    },
+    {
+      path: '/customer',
+      element: <Customer />,
     },
   ],
 }

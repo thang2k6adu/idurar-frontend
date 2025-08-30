@@ -61,3 +61,8 @@
   position: relative;
   padding: 50px 40px;
 }
+.line {
+  border-top: 1px solid #edf0f5;
+  width: 100%;
+  margin: 5px auto;
+}
