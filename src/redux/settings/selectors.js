@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
 
-export const selectSetting = (state) => state.settings
+export const selectSettings = (state) => state.settings
 
 export const selectCurrentSettings = createSelector(
-  [selectSetting],
+  [selectSettings],
   (settings) => settings.result
 )
 

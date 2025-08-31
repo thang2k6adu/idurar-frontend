@@ -77,10 +77,10 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
     },
     {
-      key: 'generalSettings',
+      key: 'settings',
       icon: <SettingOutlined />,
       label: (
-        <Link to={'/generalSettings'}>{translate('Settings')}</Link>
+        <Link to={'/settings'}>{translate('Settings')}</Link>
       ),
     },
     {
