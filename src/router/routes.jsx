@@ -14,6 +14,7 @@ const Payment = lazy(() => import('~/pages/Payment'))
 const PaymentRead = lazy(() => import('~/pages/Payment/PaymentRead'))
 const PaymentUpdate = lazy(() => import('~/pages/Payment/PaymentUpdate'))
 const Customer = lazy(() => import('~/pages/Customer'))
+const Settings = lazy(() => import('~/pages/Settings/Settings'))
 
 let routes = {
   expense: [],
@@ -73,6 +74,10 @@ let routes = {
     {
       path: '/customer',
       element: <Customer />,
+    },
+    {
+      path: '/settings',
+      element: <Settings />,
     },
   ],
 }

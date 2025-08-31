@@ -2,7 +2,7 @@ import { Layout } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { settingsAction } from '~/redux/settings/actions'
 import { useLayoutEffect } from 'react'
-import { selectSetting } from '~/redux/settings/selectors'
+import { selectSettings } from '~/redux/settings/selectors'
 
 import useResponsive from '~/hooks/useResponsive'
 import PageLoader from '~/components/PageLoader'
@@ -20,7 +20,7 @@ export default function ErpApp() {
     dispatch(settingsAction.list({ entity: 'setting' }))
   }, [])
 
-  const { isSuccess: settingIsLoaded } = useSelector(selectSetting)
+  const { isSuccess: settingIsLoaded } = useSelector(selectSettings)
 
   if (settingIsLoaded) {
     return (
