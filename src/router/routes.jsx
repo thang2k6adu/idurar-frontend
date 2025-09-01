@@ -84,6 +84,10 @@ let routes = {
       path: '/paymentMode',
       element: <PaymentMode />,
     },
+    {
+      path: '/taxes',
+      element: <PaymentMode />,
+    },
   ],
 }
 
