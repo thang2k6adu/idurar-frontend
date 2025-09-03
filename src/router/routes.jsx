@@ -17,6 +17,7 @@ const Customer = lazy(() => import('~/pages/Customer'))
 const Settings = lazy(() => import('~/pages/Settings/Settings'))
 const PaymentMode = lazy(() => import('~/pages/PaymentMode'))
 const Profile = lazy(() => import('~/pages/Profile'))
+const Dashboard = lazy(() => import('~/pages/Dashboard'))
 
 let routes = {
   expense: [],
@@ -92,6 +93,10 @@ let routes = {
     {
       path: '/profile',
       element: <Profile />,
+    },
+    {
+      path: '/',
+      element: <Dashboard />,
     },
   ],
 }

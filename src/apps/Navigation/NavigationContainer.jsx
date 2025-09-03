@@ -82,12 +82,7 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: (
         <Link to={'/settings'}>{translate('Settings')}</Link>
       ),
-    },
-    {
-      key: 'about',
-      icon: <ReconciliationOutlined />,
-      label: <Link to={'/about'}>{translate('about')}</Link>,
-    },
+    }
   ]
 
   useEffect(() => {
