@@ -18,6 +18,8 @@ const Settings = lazy(() => import('~/pages/Settings/Settings'))
 const PaymentMode = lazy(() => import('~/pages/PaymentMode'))
 const Profile = lazy(() => import('~/pages/Profile'))
 const Dashboard = lazy(() => import('~/pages/Dashboard'))
+const NotFound = lazy(() => import('~/pages/NotFound'))
+const Logout = lazy(() => import('~/pages/Logout'))
 
 let routes = {
   expense: [],
@@ -97,6 +99,14 @@ let routes = {
     {
       path: '/',
       element: <Dashboard />,
+    },
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+    {
+      path: '/logout',
+      element: <Logout />,
     },
   ],
 }
