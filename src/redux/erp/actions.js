@@ -162,7 +162,6 @@ export const erp = {
       })
 
       let data = await request.update({ entity, id, jsonData })
-      console.log(data)
 
       if (data.success === true) {
         dispatch({

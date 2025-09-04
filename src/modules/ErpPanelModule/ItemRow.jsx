@@ -43,7 +43,6 @@ export default function ItemRow({ field, remove, current = null }) {
     const currentTotal = calculate.multiply(price, quantity)
 
     setTotal(currentTotal)
-    console.log(totalState)
   }, [price, quantity])
 
   return (

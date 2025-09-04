@@ -293,7 +293,6 @@ export const request = {
   convert: async ({ entity, id }) => {
     try {
       includeToken()
-      console.log(entity + '/convert/' + id)
       const response = await axios.post(entity + '/convert/' + id)
 
       successHandler(response, {

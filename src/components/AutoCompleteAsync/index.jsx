@@ -63,7 +63,6 @@ export default function AutoCompleteAsync({
 
   useEffect(() => {
     if (value && isUpdating.current) {
-      console.log('value', value)
       setSelectOptions([value])
       setCurrentValue(value[outputValue] || value)
       onChange(value[outputValue] || value)

@@ -70,15 +70,17 @@ export const resetPassword = async ({ resetPasswordData }) => {
 export const logout = async () => {
   axios.defaults.withCredentials = true
   try {
-    response = await axios.post(API_BASE_URL + `logout?timestamp=${new Date.getTime()}`)
+    const response = await axios.post(API_BASE_URL + `logout?timestamp=${new Date().getTime()}`)
 
     successHandler(
       response,
       {
-        notifyOnSuccess: true,
+        notifyOnSuccess: false,
         notifyOnFailed: true,
       }
     )
+
+     console.log(response.data)
 
     return response.data
   } catch (error) {

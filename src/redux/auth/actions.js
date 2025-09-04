@@ -133,6 +133,7 @@ export const logout = () => async (dispatch) => {
   window.localStorage.setItem('isLogout', JSON.stringify({ isLogout: true }))
 
   const data = await authService.logout()
+  console.log(data)
   if (data.success === false) {
     dispatch({
       type: actionTypes.LOGOUT_FAILED,

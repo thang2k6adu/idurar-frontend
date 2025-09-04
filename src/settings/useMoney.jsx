@@ -7,7 +7,6 @@ import { selectMoneyFormat } from '~/redux/settings/selectors'
 
 const useMoney = () => {
   const money_format_settings = useSelector(selectMoneyFormat)
-  console.log(useSelector(selectMoneyFormat))
 
   const money_format_state = money_format_settings
     ? money_format_settings

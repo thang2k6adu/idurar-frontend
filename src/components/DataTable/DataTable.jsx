@@ -41,7 +41,6 @@ export default function DataTable({ config, extra = [] }) {
   const dispatch = useDispatch()
   const translate = useLanguage()
   const { crudContextAction } = useCrudContext()
-  console.log(useCrudContext())
   const { panel, collapsedBox, modal, readBox, editBox, advancedBox } =
     crudContextAction
   const { moneyFormatter } = useMoney()

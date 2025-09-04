@@ -64,7 +64,6 @@ export default function CreateItem({ config, CreateForm }) {
 
   let { entity } = config
   const { isLoading, isSuccess, result } = useSelector(selectCreatedItem)
-  console.log(useSelector(selectCreatedItem))
   // useForm trả về array với Form Instance ở đầu tiên
   // form này quản lý form state và validation
   // reset form sau khi submit thành công: resetFields()
@@ -86,7 +85,6 @@ export default function CreateItem({ config, CreateForm }) {
   }, [isSuccess])
 
   const onSubmit = (fieldsValue) => {
-    console.log('fieldsValue', fieldsValue)
     if (fieldsValue) {
       if (fieldsValue.items) {
         let newList = [...fieldsValue.items]

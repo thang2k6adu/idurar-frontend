@@ -92,7 +92,6 @@ export const settingsAction = {
         if (data.success === true) {
           const payload = dispatchSettingsData(data.result)
 
-          console.log('ok')
           window.localStorage.setItem('settings', JSON.stringify(payload))
 
           dispatch({
@@ -122,7 +121,6 @@ export const settingsAction = {
       if (data.success === true) {
         const payload = dispatchSettingsData(data.result)
 
-        console.log(payload)
         window.localStorage.setItem('settings', JSON.stringify(payload))
 
         dispatch({

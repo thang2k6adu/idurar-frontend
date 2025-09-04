@@ -41,7 +41,6 @@ export default function Delete({ config }) {
     const id = current._id
     dispatch(erp.delete({ entity, id }))
     modal.close()
-    console.log(deleteModal)
   }
 
   const handleCancel = () => {
