@@ -1,28 +1,38 @@
-import { useEffect, useLayoutEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { logout as logoutAction } from '~/redux/auth/actions';
-import { crud } from '~/redux/crud/actions';
-import { erp } from '~/redux/erp/actions';
-import PageLoader from '~/components/PageLoader';
+import { useEffect, useLayoutEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { logout as logoutAction, resetState } from '~/redux/auth/actions'
+import { crud } from '~/redux/crud/actions'
+import { erp } from '~/redux/erp/actions'
+import PageLoader from '~/components/PageLoader'
 
 const Logout = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   function asyncLogout() {
-    dispatch(logoutAction());
+    dispatch(logoutAction())
   }
 
   useLayoutEffect(() => {
-    dispatch(crud.resetState());
-    dispatch(erp.resetState());
-  }, []);
+    dispatch(crud.resetState())
+    dispatch(erp.resetState())
+  }, [])
 
   useEffect(() => {
-    asyncLogout();
-    navigate('/login');
-  }, []);
+    const doLogout = async () => {
+      try {
+        await dispatch(logoutAction()) // Chờ logout xong
+        dispatch(resetState()) // Reset sau khi logout
+        navigate('/login', { replace: true }) // Điều hướng (replace để tránh quay lại logout)
+      } catch (error) {
+        console.error('Logout failed:', error)
+        // Có thể xử lý thêm ở đây nếu muốn
+      }
+    }
 
-  return <PageLoader />;
-};
-export default Logout;
+    doLogout()
+  }, [dispatch, navigate])
+
+  return <PageLoader />
+}
+export default Logout

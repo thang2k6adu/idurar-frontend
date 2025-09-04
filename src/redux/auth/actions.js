@@ -2,6 +2,11 @@ import * as actionTypes from './types'
 import * as authService from '~/auth'
 import { request } from '~/request/request'
 
+
+export const resetState = () => async (dispatch) => {
+  dispatch({ type: actionTypes.RESET_STATE })
+}
+
 export const login =
   ({ loginData }) =>
   async (dispatch) => {
@@ -129,20 +134,12 @@ export const logout = () => async (dispatch) => {
 
   const data = await authService.logout()
   if (data.success === false) {
-    const auth_state = {
-      current: tmpAuth,
-      isLoggedIn: true,
-      isLoading: false,
-      isSuccess: true,
-    }
-
-    window.localStorage.setItem('auth', JSON.stringify(auth_state))
-    window.localStorage.setItem('settings', JSON.stringify(tmpSettings))
-    window.localStorage.removeItem('isLogout')
     dispatch({
       type: actionTypes.LOGOUT_FAILED,
       payload: data.result,
     })
+  
+    return data.response
   } else {
   }
 }
