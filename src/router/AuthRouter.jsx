@@ -12,7 +12,7 @@ export default function AuthRouter() {
       <Route element={<LoginPage />} path="/"></Route>
       <Route element={<LoginPage />} path="/login"></Route>
       <Route element={<Navigate to="/login" replace/>} path="/logout"></Route>
-      <Route element={<ForgetPassword />} path="/forgetPassword"></Route>
+      <Route element={<ForgetPassword />} path="/forgetpassword"></Route>
       <Route element={<ResetPassword />} path="/resetPassword/:userId/:resetToken"></Route>
     </Routes>
   )
