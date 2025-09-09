@@ -47,7 +47,7 @@ export default function LoginForm() {
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>{translate('Remember me')}</Checkbox>
         </Form.Item>
-        <a className="login-form-forgot" href="/forgetpassword" style={{ marginLeft: '0px' }}>
+        <a className="login-form-forgot" href="/forgetPassword" style={{ marginLeft: '0px' }}>
           {translate('Forgot password')}
         </a>
       </Form.Item>
